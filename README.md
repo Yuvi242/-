@@ -63,7 +63,7 @@
 
    ## Guess the Number Game
 
-This is a simple Python script that asks the user to guess a number between 1 and 10.
+यह एक आसान पायथन स्क्रिप्ट है जो उपयोगकर्ता से 1 से 10 के बीच की संख्या का अनुमान लगाने के लिए कहती है।
 
 ```python
 import random

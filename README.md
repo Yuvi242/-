@@ -52,7 +52,11 @@
 
 1. ## **प्रोग्राम लिखें:** मान लें कि हमलोग अपना पायथन गेम game.py नामक फ़ाइल में लिखा है:
 
-   ```python
+   ## Guess the Number Game
+
+This is a simple Python script that asks the user to guess a number between 1 and 10.
+
+```python
 import random
 
 number_to_guess = random.randint(1, 10)
@@ -67,34 +71,30 @@ while True:
         print("Try again!")
 ```
 
-
 2. ## **एक डॉकरफाईल बनाएँ:** इसके बाद, हमलोग game.py फाइल जिस फ़ोल्डर में है उसी फोल्डर में डॉकरफाईल नामक एक फ़ाइल बनाएंगे। डॉकरफाईल, डॉकर को बताता है कि हमारे कंटेनर इमेज कैसे बनाई जाए।
 
-   \`\`\`dockerfile  
-   \# Use a lightweight Python image  
-   FROM python:3.8-slim  
-     
-   \# Copy the game code into the container  
-   COPY guess.py /app/guess.py  
-     
-   \# Set the working directory inside the container  
-   WORKDIR /app  
-     
-   \# Run the game  
-   CMD \["python", "guess.py"\]  
-   \`\`\`  
-     
-     
-   
+```dockerfile
+# Use a lightweight Python image
+FROM python:3.8-slim
 
+# Copy the game code into the container
+COPY game.py /app/game.py
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Run the game
+CMD ["python", "game.py"]
+```
+
+     
 3. ## **कंटेनर इमेज बनाएं:** एक बार जब हमारे पास डॉकरफ़ाइल हो, तो हम कंटेनर इमेज बनाने के लिए डॉकर का उपयोग करते हैं। हम लिनक्स सिस्टम पर अपना टर्मिनल खोलेंगे और निचे दिए हुए कमांड चलाएंगे:
 
-   \`\`\`bash  
-   docker build \-t guess-number-game .  
-   \`\`\`
-
-           इस कमांड से हम डॉकर को डॉकरफाइल में दिए गए निर्देशों का उपयोग करके इमेज बनाने और इमेज को  
-           अनुमान-संख्या-गेम नाम देने के लिए कहते  है।
+   ```bash  
+   docker build \-t guess-number-game .
+   ```
+   इस कमांड से हम डॉकर को डॉकरफाइल में दिए गए निर्देशों का उपयोग करके इमेज बनाने और इमेज को  
+   अनुमान-संख्या-गेम नाम देने के लिए कहते  है।
 
 # कंटेनर कैसे चलाते हैं?
 
@@ -107,19 +107,19 @@ while True:
 
 1. ## **कंटेनर चलाएँ:** इमेज बनाने के बाद, कंटेनर रन करें:
 
-   \`\`\`bash  
+   ```bash  
    docker run \-it guess-number-game  
-   \`\`\`  
-   \-it विकल्प डॉकर को कहता है की कंटेनर को इंटरैक्टिव रूप में चलाइए, ताकि हम गेम खेल सकें।
+   ```
+   -it विकल्प डॉकर को कहता है की कंटेनर को इंटरैक्टिव रूप में चलाइए, ताकि हम गेम खेल सकें।
 
 2. ## **गेम खेलें:** कमांड चलाने के बाद, हमलोगो को गेम के लिए एक संदेश अपने स्क्रीन पर दिखाई देगा।
 
-   \`\`\`bash  
+   ```bash  
    Guess the number between 1 and 10  
    Your guess:   
-   \`\`\`
+   ```
 
-   फिर हम संख्याओं का अनुमान लगाकर गेम खेल सकते हैं, और गेम हमें बताएगा कि हमने सही अनुमान लगाया है या नहीं\!
+   फिर हम संख्याओं का अनुमान लगाकर गेम खेल सकते हैं, और गेम हमें बताएगा कि हमने सही अनुमान लगाया है या नहीं!
 
 # आइए जल्दी से समझें कि "संख्या का अनुमान लगाएं" गेम कैसे काम करता है:
 

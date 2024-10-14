@@ -52,20 +52,21 @@
 
 1. ## **प्रोग्राम लिखें:** मान लें कि हमलोग अपना पायथन गेम game.py नामक फ़ाइल में लिखा है:
 
-   \`\`\`python  
-   import random  
-     
-   number\_to\_guess \= random.randint(1, 10\)  
-   print("Guess the number between 1 and 10")  
-     
-   while True:  
-       guess \= int(input("Your guess: "))  
-       if guess \== number\_to\_guess:  
-           print("You guessed it right\!")  
-           break  
-       else:  
-           print("Try again\!")  
-   \`\`\`
+   ```python
+import random
+
+number_to_guess = random.randint(1, 10)
+print("Guess the number between 1 and 10")
+
+while True:
+    guess = int(input("Your guess: "))
+    if guess == number_to_guess:
+        print("You guessed it right!")
+        break
+    else:
+        print("Try again!")
+```
+
 
 2. ## **एक डॉकरफाईल बनाएँ:** इसके बाद, हमलोग game.py फाइल जिस फ़ोल्डर में है उसी फोल्डर में डॉकरफाईल नामक एक फ़ाइल बनाएंगे। डॉकरफाईल, डॉकर को बताता है कि हमारे कंटेनर इमेज कैसे बनाई जाए।
 
